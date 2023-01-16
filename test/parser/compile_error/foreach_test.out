@@ -1,0 +1,37 @@
+INFO  16:59:31,003 - line  40 - Access to global variable g_arr [Var g_arr: Arr of int, 1, 0 ].
+INFO  16:59:31,003 - line  42 - Access to local variable a_a [Var a_a: Class A, 1, 1 ].
+INFO  16:59:31,004 - line  42 - Access to member designator of class A [Fld designator: Arr of int, 2, 1 ].
+INFO  16:59:31,004 - line  43 - Access to local variable l_i [Var l_i: int, 5, 1 ].
+ERROR 16:59:31,005 - line  43 - Value of ForEach loop variable cannot be changed.
+INFO  16:59:31,005 - line  44 - Access to local variable l_i [Var l_i: int, 5, 1 ].
+ERROR 16:59:31,005 - line  44 - Value of ForEach loop variable cannot be changed.
+INFO  16:59:31,006 - line  49 - Access to local variable a_a [Var a_a: Class A, 1, 1 ].
+INFO  16:59:31,006 - line  49 - Access to member designator of class A [Fld designator: Arr of int, 2, 1 ].
+INFO  16:59:31,006 - line  50 - Call to global function print.
+INFO  16:59:31,007 - line  50 - Call to global function print.
+INFO  16:59:31,007 - line  50 - Access to constant eol [Con eol: char, 10, 0 ].
+INFO  16:59:31,007 - line  50 - Call to global function print.
+INFO  16:59:31,007 - line  53 - Access to global variable g_i [Var g_i: int, 0, 0 ].
+ERROR 16:59:31,008 - line  53 - ForEach loop invoked on non-array variable.
+INFO  16:59:31,008 - line  53 - Call to global function print.
+INFO  16:59:31,008 - line  55 - Access to local variable l_i [Var l_i: int, 5, 1 ].
+ERROR 16:59:31,008 - line  55 - ForEach loop invoked on non-array variable.
+INFO  16:59:31,008 - line  55 - Call to global function print.
+INFO  16:59:31,010 - line  57 - Access to local variable a_a [Var a_a: Class A, 1, 1 ].
+ERROR 16:59:31,010 - line  57 - ForEach loop invoked on non-array variable.
+INFO  16:59:31,010 - line  57 - Call to global function print.
+INFO  16:59:31,011 - line  59 - Access to local variable b_b [Var b_b: Class B, 4, 1 ].
+INFO  16:59:31,011 - line  59 - Access to member arr of class B [Fld arr: Arr of Class, 3, 1 ].
+INFO  16:59:31,011 - line  60 - Access to local variable b_b [Var b_b: Class B, 4, 1 ].
+INFO  16:59:31,011 - line  60 - Access to member arr of class B [Fld arr: Arr of Class, 3, 1 ].
+ERROR 16:59:31,011 - line  60 - Type of ForEach loop variable l_i does not match the type of array elements.
+INFO  16:59:31,012 - line  60 - Access to local variable t [Var t: Class A, 2, 1 ].
+ERROR 16:59:31,012 - line  60 - Operands are not compatible for assignment.
+ERROR 16:59:31,012 - line  60 - Value of ForEach loop variable cannot be changed.
+INFO  16:59:31,012 - line  63 - Access to local variable b_b [Var b_b: Class B, 4, 1 ].
+INFO  16:59:31,013 - line  63 - Access to member arr of class B [Fld arr: Arr of Class, 3, 1 ].
+INFO  16:59:31,013 - line  64 - Access to local variable b_b [Var b_b: Class B, 4, 1 ].
+INFO  16:59:31,013 - line  64 - Access to member arr of class B [Fld arr: Arr of Class, 3, 1 ].
+INFO  16:59:31,013 - line  64 - Access to local variable t [Var t: Class A, 2, 1 ].
+ERROR 16:59:31,013 - line  64 - Operands are not compatible for assignment.
+ERROR 16:59:31,013 - line  64 - Value of ForEach loop variable cannot be changed.

@@ -1,0 +1,28 @@
+program function_call_test
+
+const int const_;
+int var;
+int a, b;
+
+{
+    
+    void main() {
+        const_();
+        var(1);
+        unknown();
+        unknown(3, 2, 4);
+
+
+        // ord, chr test
+        ord();
+        ord(5);
+        ord(a, b);
+        chr(false);
+
+        chr();
+        chr('c');
+        chr(a, b);
+        chr(true);
+
+   }
+}

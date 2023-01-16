@@ -1,0 +1,102 @@
+program if_test
+
+int testCaseNo;
+{
+    bool T(int t) {
+        print(t, 2);
+        return true;
+    }
+
+    bool F(int t) {
+        print(t, 2);
+        return false;
+    }
+
+    void inThen(int i) {
+        print('t',2);
+        print('h',1);
+        print('e',1);
+        print('n',1);
+        print(i,2);
+    }
+
+    void inElse(int i) {
+        print('e',2);
+        print('l',1);
+        print('s',1);
+        print('e',1);
+        print(i,2);
+    }
+
+    void next() {
+        print(eol);
+        print('t',1);
+        print('e',1);
+        print('s',1);
+        print('t',1);
+        print(testCaseNo, 4);
+        print(':', 1);
+        print(' ', 1);
+        testCaseNo++;
+    }
+
+    void main() {
+        testCaseNo = 0;
+
+		next();        if (T(0)) if (T(1)) inThen(1);
+		next();        if (T(0)) if (F(1)) inThen(1);
+		next();        if (F(0)) if (T(1)) inThen(1);
+		next();        if (F(0)) if (F(1)) inThen(1);
+
+		next();        if (T(0)) if (T(1)) inThen(1); else inElse(1);
+		next();        if (T(0)) if (F(1)) inThen(1); else inElse(1);
+		next();        if (F(0)) if (T(1)) inThen(1); else inElse(1);
+		next();        if (F(0)) if (F(1)) inThen(1); else inElse(1);
+
+		next();        if (T(0)) if (T(1)) inThen(1); else inElse(1); else inElse(0);
+		next();        if (T(0)) if (F(1)) inThen(1); else inElse(1); else inElse(0);
+		next();        if (F(0)) if (T(1)) inThen(1); else inElse(1); else inElse(0);
+		next();        if (F(0)) if (F(1)) inThen(1); else inElse(1); else inElse(0);
+
+		next();        if (T(0)) inThen(0); else if (T(1)) inThen(1);
+		next();        if (T(0)) inThen(0); else if (F(1)) inThen(1);
+		next();        if (F(0)) inThen(0); else if (T(1)) inThen(1);
+		next();        if (F(0)) inThen(0); else if (F(1)) inThen(1);
+
+		next();        if (T(0)) inThen(0); else if (T(1)) inThen(1); else inElse(1);
+		next();        if (T(0)) inThen(0); else if (F(1)) inThen(1); else inElse(1);
+		next();        if (F(0)) inThen(0); else if (T(1)) inThen(1); else inElse(1);
+		next();        if (F(0)) inThen(0); else if (F(1)) inThen(1); else inElse(1);
+
+		next();        if (T(0)) if (T(1)) if (T(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (T(0)) if (T(1)) if (F(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (T(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (F(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (T(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (F(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (T(2)) inThen(2); else inElse(2); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (F(2)) inThen(2); else inElse(2); else inElse(1);
+
+
+		next();        if (T(0)) if (T(1)) if (T(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (T(1)) if (F(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (T(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (F(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (T(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (F(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (T(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (F(2)) inThen(2); else if (T(3)) inThen(3); else inElse(3); else inElse(1);
+
+		next();        if (T(0)) if (T(1)) if (T(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (T(1)) if (F(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (T(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (T(0)) if (F(1)) if (F(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (T(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (T(1)) if (F(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (T(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+		next();        if (F(0)) if (F(1)) if (F(2)) inThen(2); else if (F(3)) inThen(3); else inElse(3); else inElse(1);
+
+
+    }
+
+}

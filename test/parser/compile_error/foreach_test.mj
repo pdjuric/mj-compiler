@@ -1,0 +1,64 @@
+program foreach_test
+
+class A {
+    int ident;
+    int designator[];
+    {
+        A() {
+            this.designator = new int[6];
+            designator[0] = 0;
+            designator[1] = 1;
+            designator[2] = 2;
+            designator[3] = 3;
+            designator[4] = 4;
+            designator[5] = 5;
+        }
+    }
+}
+
+class B extends A{
+    B arr[];
+    {
+        B() {}
+
+        B(boolean t) { 
+            this.arr = new B[2];
+            arr[0] = new B();
+            arr[1] = new B();
+        }
+    }
+}
+
+int g_i;
+int g_arr[];
+
+{
+  
+    void main() int cnt[]; A a_a, t; B b_b; int l_i; char l_c; {
+        a_a = new A();
+        b_b = new B();
+        g_arr = new int[3];
+
+        a_a.desingator.foreach(l_i => {
+            l_i++;
+            l_i = 2;
+        });
+
+        a_a.desingator.foreach(a_a.ident =>  print('x'); );
+
+        a_a.desingator.foreach(g_i => {
+            print('o', 1); print('k', 1); print(eol);
+        });
+
+        g_i.foreach(l_i => print('a'););        //designator nije array
+
+        l_i.foreach(l_c => print('b'););
+
+        a_a.foreach(l_i => print('c'););
+
+        b_b.arr.foreach( t =>
+            b_b.arr.foreach(l_i => t = 5; );
+        );
+
+    }
+}

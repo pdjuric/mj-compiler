@@ -1,0 +1,7 @@
+program type_test
+
+Integer a;
+
+{
+    void main() {}
+}

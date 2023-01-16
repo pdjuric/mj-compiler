@@ -1,0 +1,44 @@
+INFO  17:05:27,943 - line  10 - Access to constant const_ [Con const_: int, 222, 0 ].
+ERROR 17:05:27,943 - line  10 - const_ is not a function
+INFO  17:05:27,943 - line  11 - Access to global variable var [Var var: int, 0, 0 ].
+ERROR 17:05:27,943 - line  11 - var is not a function
+ERROR 17:05:27,944 - line  12 - unknown is undeclared.
+ERROR 17:05:27,944 - line  12 - noObj is not a function
+ERROR 17:05:27,944 - line  13 - unknown is undeclared.
+ERROR 17:05:27,944 - line  13 - noObj is not a function
+INFO  17:05:27,945 - line  17 - Call to global function ord [Meth ord: int, 0, 1
+Var ch: char, 0, 1
+].
+ERROR 17:05:27,945 - line   0 - No matching function to call - 1 argument missing.
+INFO  17:05:27,945 - line  18 - Call to global function ord [Meth ord: int, 0, 1
+Var ch: char, 0, 1
+].
+ERROR 17:05:27,945 - line  18 - No matching function to call - argument on index 0.
+INFO  17:05:27,945 - line  19 - Call to global function ord [Meth ord: int, 0, 1
+Var ch: char, 0, 1
+].
+INFO  17:05:27,945 - line  19 - Access to global variable a [Var a: int, 1, 0 ].
+ERROR 17:05:27,946 - line  19 - No matching function to call - argument on index 0.
+INFO  17:05:27,946 - line  19 - Access to global variable b [Var b: int, 2, 0 ].
+INFO  17:05:27,946 - line  20 - Call to global function chr [Meth chr: char, 0, 1
+Var i: int, 0, 1
+].
+ERROR 17:05:27,946 - line  20 - No matching function to call - argument on index 0.
+INFO  17:05:27,946 - line  22 - Call to global function chr [Meth chr: char, 0, 1
+Var i: int, 0, 1
+].
+ERROR 17:05:27,946 - line   0 - No matching function to call - 1 argument missing.
+INFO  17:05:27,947 - line  23 - Call to global function chr [Meth chr: char, 0, 1
+Var i: int, 0, 1
+].
+ERROR 17:05:27,947 - line  23 - No matching function to call - argument on index 0.
+INFO  17:05:27,947 - line  24 - Call to global function chr [Meth chr: char, 0, 1
+Var i: int, 0, 1
+].
+INFO  17:05:27,947 - line  24 - Access to global variable a [Var a: int, 1, 0 ].
+INFO  17:05:27,947 - line  24 - Access to global variable b [Var b: int, 2, 0 ].
+ERROR 17:05:27,947 - line  24 - No matching function to call - too many arguments.
+INFO  17:05:27,948 - line  25 - Call to global function chr [Meth chr: char, 0, 1
+Var i: int, 0, 1
+].
+ERROR 17:05:27,948 - line  25 - No matching function to call - argument on index 0.

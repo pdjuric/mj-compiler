@@ -1,0 +1,12 @@
+program main_test
+
+class T{}
+
+const char a = 5, b = true;
+const bool c = 'a', d = 3;
+const int e = 's', f = false;
+const T t = 5;
+
+{
+    void main(){}
+}

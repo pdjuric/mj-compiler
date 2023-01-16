@@ -1,0 +1,48 @@
+program main_test
+
+class A {
+    int fieldA;
+    {
+        void foo(int a, int b) {}
+        int bar() int t, a, b, s; {}
+        A baz(A a) {}
+    }
+}
+
+class X extends A {
+    {
+
+
+        int bar(int visakParam) {}
+        A bar() {}
+
+        A baz() A a; {}
+        A baz(X a) {}
+        X baz(A a) {}                   // ok
+
+        A qux() {}                      // ne overrideuje ni jedan metod - ok
+    }
+}
+
+class XX extends X {
+    {
+        A qux() {}
+    }
+}
+
+
+class Y extends A{
+    int fieldY;
+    {
+        void Name() {}
+        void fieldA() {}
+        int fieldY() {}
+
+        int f() char f; {}
+    }
+}
+
+
+{
+    void main() {}
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MJCompiler" default="generate_compiler" basedir=".">
+
+	<target name="delete">
+		<delete dir="out" />
+		<delete>
+			<fileset dir="src/rs/ac/bg/etf/pp1" includes="*.class"/>
+		</delete>
+		<delete  dir="src/rs/ac/bg/etf/pp1/ast" />
+		<delete file="src/rs/ac/bg/etf/pp1/MJParser.java" />
+		<delete file="src/rs/ac/bg/etf/pp1/sym.java" />
+		<delete file="src/rs/ac/bg/etf/pp1/YYlex.java" />
+		<delete file="spec/mjparser.cup" />
+		<delete file="spec/mjparser_astbuild.cup" />
+	</target>
+
+	<target name="generate_lexer" depends="delete">
+		<java jar="lib/JFlex.jar" fork='true'>
+			<arg value="-d" />
+			<arg value="./src/rs/ac/bg/etf/pp1" />
+			<arg value="./spec/mjlexer.flex" />
+		</java>
+	</target>
+
+	<target name="generate_cup" depends="delete">
+		<exec executable="/bin/bash">
+			<arg value="./cup_gen/script.sh"/>
+		</exec>
+	</target>
+
+	<target name="generate_parser_no_repackage" depends="generate_lexer,generate_cup">
+		<java jar="lib/cup_v10k.jar" fork="true">
+			<arg value="-destdir" />
+			<arg value="src/rs/ac/bg/etf/pp1" />
+			<arg value="-ast" />
+			<arg value="src.rs.ac.bg.etf.pp1.ast" />
+			<arg value="-parser" />
+			<arg value="MJParser" />
+<!--			<arg value="-dump_states" />-->
+			<arg value="-buildtree" />
+			<arg value="spec/mjparser.cup" />
+<!--			<redirector output="last_parser_output.log" alwayslog="true"/>-->
+		</java>
+	</target>
+
+	<target name="generate_parser" depends="generate_parser_no_repackage">
+		<replace dir="src" value="rs.ac.bg.etf.pp1.ast" token="src.rs.ac.bg.etf.pp1.ast" summary="true" />
+	</target>
+
+	<target name="generate_compiler" depends="generate_parser">
+		<mkdir dir="out"/>
+		<javac srcdir="src"
+			   includeantruntime="true"
+			   destdir="out"
+			   fork="true"
+		>
+			<classpath>
+				<pathelement location="lib/JFlex.jar" />
+				<pathelement location="lib/cup_v10k.jar" />
+				<pathelement location="lib/log4j-1.2.17.jar" />
+				<pathelement location="lib/mj-runtime.jar" />
+				<pathelement location="lib/symboltable-1-1.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="compile">
+		<java classpath="out" classname="rs.ac.bg.etf.pp1.Compiler" fork="true">
+			<arg value="test/parser/test1.mj"/>
+			<arg value="out/program.obj"/>
+			<classpath>
+				<pathelement path="lib/cup_v10k.jar" />
+				<pathelement path="lib/log4j-1.2.17.jar" />
+				<pathelement path="lib/mj-runtime.jar" />
+				<pathelement path="lib/symboltable-1-1.jar" />
+				<pathelement path="out/production/MJCompiler"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="disassemble" depends="">
+		<java classname="rs.etf.pp1.mj.runtime.disasm">
+			<arg value="out/program.obj"/>
+			<classpath>
+				<pathelement location="lib/mj-runtime.jar"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="execute" depends="disassemble" >
+		<java classname="rs.etf.pp1.mj.runtime.Run">
+			<arg value="out/program.obj"/>
+<!--			<arg value="-debug"/>-->
+			<classpath>
+				<pathelement location="lib/mj-runtime.jar"/>
+			</classpath>
+			<redirector input="test/input.txt" />
+		</java>
+	</target>
+
+</project>
+

@@ -1,0 +1,20 @@
+program function_call_test
+
+int i;
+char c;
+
+{
+    void main() int arr[];  {
+
+        arr = new int['a'];
+        
+        c = 'c';
+        arr = new arr[c];
+
+        arr = new int[false];
+
+        // array access testing
+        i = c[5];
+        i = i[2];
+   }
+}

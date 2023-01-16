@@ -1,0 +1,4 @@
+ERROR 15:39:12,129 - line  16 - Excess parameter visakParam in override function bar.
+ERROR 15:39:12,130 - line  17 - Override of function bar in class X has incompatible return type.
+ERROR 15:39:12,130 - line   0 - OverrideParametersMissing  baz
+ERROR 15:39:12,130 - line  20 - OverrideParameterTypeMismatch a baz

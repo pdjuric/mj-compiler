@@ -1,0 +1,3 @@
+ERROR 14:12:50,479 - line   8 - Identifier Ok already defined in this scope.
+ERROR 14:12:50,479 - line   9 - Identifier ok already defined in this scope.
+ERROR 14:12:50,479 - line  10 - Identifier c_ok already defined in this scope.

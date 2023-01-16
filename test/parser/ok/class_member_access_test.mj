@@ -1,0 +1,63 @@
+program class_member_access_test
+
+class A {
+    int f;
+
+    A() { f = 1; }
+    void foo(char f) {
+        f = 'p';
+        print(f);
+        print(this.f);
+    }
+
+    void bar() char f; {
+        f = 'l';
+        print(f);
+        print(this.f);
+    }
+
+    void buz() {
+        foo();
+        this.bar();
+    }
+
+}
+
+class B extends A {
+
+    B() { f = 10; }
+    void foo(char f) {
+        f = 'q';
+        print(f);
+        print(this.f);
+    }
+
+    void bar() char f; {
+        f = 'm';
+        print(f);
+        print(this.f);
+    }
+
+}
+
+{
+
+    void main() A a_a, a_b; B b_b; {
+        a_a = new A();
+        a_b = new B();
+        b_b = new B();
+
+        a_a.foo();
+        a_a.bar();
+        a_a.buz();
+    
+        a_b.foo();
+        a_b.bar();
+        a_b.buz();
+    
+        b_b.foo();
+        b_b.bar();
+        b_b.buz();
+    
+    }
+}

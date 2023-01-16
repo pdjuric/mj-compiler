@@ -1,0 +1,22 @@
+INFO  16:01:19,319 - line  20 - Access to local variable a1 [Var a1: Class A, 0, 1 ].
+ERROR 16:01:19,320 - line  20 - int is not a class
+INFO  16:01:19,320 - line  20 - Call to constructor of class [unknown class] [[]].
+INFO  16:01:19,321 - line  21 - Access to local variable a2 [Var a2: Class A, 1, 1 ].
+ERROR 16:01:19,321 - line  21 - a1 is not a type
+ERROR 16:01:19,322 - line  21 - a1 is not a class
+INFO  16:01:19,322 - line  21 - Call to constructor of class [unknown class] [[]].
+INFO  16:01:19,322 - line  23 - Access to local variable a1 [Var a1: Class A, 0, 1 ].
+ERROR 16:01:19,331 - line   0 - No matching constructor of class A for provided arguments.
+INFO  16:01:19,331 - line  23 - Call to constructor of class [unknown class] [[]].
+INFO  16:01:19,331 - line  24 - Access to local variable a1 [Var a1: Class A, 0, 1 ].
+INFO  16:01:19,332 - line  24 - Call to constructor of class A [Meth __ctor_0: , -1, 3 
+   Var this: , 0, 2 
+   Var a: int, 1, 2 
+   Var c: char, 2, 2 
+].
+INFO  16:01:19,332 - line  25 - Access to local variable a1 [Var a1: Class A, 0, 1 ].
+ERROR 16:01:19,333 - line  25 - No matching constructor of class A for provided arguments.
+INFO  16:01:19,333 - line  25 - Call to constructor of class [unknown class] [[]].
+INFO  16:01:19,333 - line  26 - Access to local variable a1 [Var a1: Class A, 0, 1 ].
+ERROR 16:01:19,334 - line  26 - No matching constructor of class A for provided arguments.
+INFO  16:01:19,334 - line  26 - Call to constructor of class [unknown class] [[]].

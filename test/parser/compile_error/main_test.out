@@ -1,0 +1,2 @@
+ERROR 17:07:19,461 - line   4 - Identifier main already defined in this scope.
+ERROR 17:07:19,461 - line   1 - Function void main() is not defined.

@@ -1,0 +1,16 @@
+program main_test
+
+class Ok {}
+Ok ok;
+const int c_ok = 5;
+
+class char {}
+class Ok {}
+class ok {}
+class c_ok {}
+class ord {}
+class len {}
+
+{
+    void main(){}
+}

@@ -1,0 +1,15 @@
+program main_test
+char c;
+{
+    void foo(int a)
+        int a; 
+    {
+
+    }
+    void main() 
+        int d; 
+        int b, b;
+        int c;
+        char d, e;
+    {}
+}

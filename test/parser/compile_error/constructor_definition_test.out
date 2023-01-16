@@ -1,0 +1,11 @@
+ERROR 16:41:53,479 - line   0 - Constructor with the same formal parameters has already been declared ( class A ).
+ERROR 16:41:53,480 - line   9 - Constructor with the same formal parameters has already been declared ( class A ).
+ERROR 16:41:53,481 - line  11 - Constructor B declared in class A (will proceed like it's the correct name).
+ERROR 16:41:53,481 - line   0 - Constructor with the same formal parameters has already been declared ( class A ).
+INFO  16:41:53,481 - line  14 - Access to local variable c [Var c: Class A, 3, 2 ].
+ERROR 16:41:53,491 - line   0 - No matching constructor of class A for provided arguments.
+INFO  16:41:53,491 - line  14 - Call to constructor of class [unknown class] [[]].
+INFO  16:41:53,491 - line  18 - Access to formal parameter this [Var this: , 0, 2 ].
+ERROR 16:41:53,493 - line  18 - Constructor returns expression.
+INFO  16:41:53,494 - line  22 - Access to formal parameter b [Var b: , 1, 2 ].
+ERROR 16:41:53,494 - line  22 - Constructor returns expression.

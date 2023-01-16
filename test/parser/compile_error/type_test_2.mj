@@ -1,0 +1,7 @@
+program type_test
+
+int A;
+A a;
+{
+    void main() {}
+}

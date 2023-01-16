@@ -1,0 +1,27 @@
+program main_test
+
+class A {
+    int a;
+
+    {
+        void b() {}
+    }
+}
+
+class C extends A{
+    char int;
+    C c;
+    char C;
+    char TVF;
+    char this;
+
+
+    // ime se poklapa sa poljem ili metodom natklase
+    char a;     // nedozvoljeno, u javi dozvljeno
+    char b;     // dozvoljeno, ali problem u runtime?
+
+}
+
+{
+    void main() {}
+}

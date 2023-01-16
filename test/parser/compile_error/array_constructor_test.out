@@ -1,0 +1,15 @@
+INFO  14:01:59,039 - line   9 - Access to local variable arr [Var arr: Arr of int, 0, 1 ].
+ERROR 14:01:59,039 - line   9 - Type of array index expression must be int.
+INFO  14:01:59,040 - line  11 - Access to global variable c [Var c: char, 1, 0 ].
+INFO  14:01:59,040 - line  12 - Access to local variable arr [Var arr: Arr of int, 0, 1 ].
+ERROR 14:01:59,040 - line  12 - arr is not a type
+INFO  14:01:59,040 - line  12 - Access to global variable c [Var c: char, 1, 0 ].
+ERROR 14:01:59,040 - line  12 - Type of array index expression must be int.
+INFO  14:01:59,040 - line  14 - Access to local variable arr [Var arr: Arr of int, 0, 1 ].
+ERROR 14:01:59,041 - line  14 - Type of array index expression must be int.
+INFO  14:01:59,041 - line  17 - Access to global variable i [Var i: int, 0, 0 ].
+INFO  14:01:59,041 - line  17 - Access to global variable c [Var c: char, 1, 0 ].
+ERROR 14:01:59,041 - line  17 - c is not an array
+INFO  14:01:59,041 - line  18 - Access to global variable i [Var i: int, 0, 0 ].
+INFO  14:01:59,042 - line  18 - Access to global variable i [Var i: int, 0, 0 ].
+ERROR 14:01:59,042 - line  18 - i is not an array

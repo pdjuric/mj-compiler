@@ -1,0 +1,5 @@
+program main_test
+{
+    int main() { }
+    void main(int a) { }
+}

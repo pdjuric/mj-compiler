@@ -1,0 +1,26 @@
+ERROR 16:46:11,201 - line  13 - UncompatibleExprInRelop
+INFO  16:46:11,201 - line  13 - Access to global variable var [Var var: int, 0, 0 ].
+ERROR 16:46:11,202 - line  14 - UncompatibleExprInRelop
+INFO  16:46:11,202 - line  14 - Access to global variable var [Var var: int, 0, 0 ].
+INFO  16:46:11,279 - line  15 - Access to global variable a1 [Var a1: Class A, 1, 0 ].
+INFO  16:46:11,279 - line  15 - Access to global variable a2 [Var a2: Class A, 2, 0 ].
+ERROR 16:46:11,280 - line  15 - RefTypeRelopError
+INFO  16:46:11,280 - line  15 - Access to global variable a1 [Var a1: Class A, 1, 0 ].
+INFO  16:46:11,281 - line  15 - Access to global variable a2 [Var a2: Class A, 2, 0 ].
+ERROR 16:46:11,281 - line  15 - RefTypeRelopError
+INFO  16:46:11,281 - line  15 - Access to global variable var [Var var: int, 0, 0 ].
+INFO  16:46:11,281 - line  16 - Access to global variable var [Var var: int, 0, 0 ].
+INFO  16:46:11,281 - line  17 - Access to global variable var [Var var: int, 0, 0 ].
+INFO  16:46:11,282 - line  17 - Call to global function print.
+INFO  16:46:11,282 - line  19 - Access to global variable var [Var var: int, 0, 0 ].
+ERROR 16:46:11,282 - line  19 - Expression term is not an int
+ERROR 16:46:11,282 - line  19 - Expression term is not an int
+INFO  16:46:11,282 - line  20 - Access to global variable var [Var var: int, 0, 0 ].
+ERROR 16:46:11,282 - line  20 - Term factor is not an int
+ERROR 16:46:11,283 - line  20 - Term factor is not an int
+ERROR 16:46:11,283 - line  20 - Term factor is not an int
+INFO  16:46:11,283 - line  21 - Access to global variable var [Var var: int, 0, 0 ].
+INFO  16:46:11,283 - line  21 - Access to global variable a1 [Var a1: Class A, 1, 0 ].
+INFO  16:46:11,283 - line  21 - Access to global variable a2 [Var a2: Class A, 2, 0 ].
+ERROR 16:46:11,283 - line  21 - Expression term is not an int
+ERROR 16:46:11,284 - line  21 - Expression term is not an int

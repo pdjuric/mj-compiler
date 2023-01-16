@@ -1,0 +1,14 @@
+program main_test
+
+const int c_a;
+int v_a;
+class A {}
+
+int A;
+int ord;
+int this;
+char v_a, c_a;
+
+{
+    void main() { }
+}

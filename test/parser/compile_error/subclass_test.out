@@ -1,0 +1,4 @@
+ERROR 17:11:45,371 - line   3 - int is not a class
+ERROR 17:11:45,372 - line   4 - Undeclared type [B].
+ERROR 17:11:45,372 - line   4 - Undeclared type [B].
+ERROR 17:11:45,372 - line   5 - A class cannot be its own superclass [D].

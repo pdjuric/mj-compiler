@@ -1,0 +1,22 @@
+program constructor_call_test
+
+class A {
+    {
+        A(int a, char c) {}
+    }
+}
+
+{
+    void main() A a1, a2, a3; {
+        a1 = new int();
+        a2 = new a1();
+
+        a1 = new A();
+        a1 = new A(5, 'c');
+        a1 = new A(5);
+        a1 = new A(5, 'c', true);
+        
+    }
+
+
+}

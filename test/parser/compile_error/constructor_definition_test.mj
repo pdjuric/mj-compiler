@@ -1,0 +1,33 @@
+program main_test
+
+class A {
+    {
+        A() {}
+        A() int a; {}
+
+        A(int a) {}
+        A(int b) {}
+
+        B() {}
+
+        A (int a, int b) A c; {
+            c = new A();
+        }
+
+        A (bool b) {
+            return this;
+        }
+
+        A (bool b, bool c) {
+            return b;
+        }
+
+        A (bool b, bool c, bool d) {
+            return;
+        }
+    }
+}
+
+{
+    void main(){ }
+}

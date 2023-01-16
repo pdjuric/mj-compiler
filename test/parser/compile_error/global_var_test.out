@@ -1,0 +1,4 @@
+ERROR 17:06:41,702 - line   7 - Identifier A already defined in this scope.
+ERROR 17:06:41,702 - line   9 - "this" is not an allowed variable name.
+ERROR 17:06:41,703 - line  10 - Identifier v_a already defined in this scope.
+ERROR 17:06:41,703 - line  10 - Identifier c_a already defined in this scope.

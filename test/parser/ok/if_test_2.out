@@ -1,0 +1,49 @@
+
+test   0:  0 1 then
+test   1:  0 1 then
+test   2:  0 1 then
+test   3:  0 1 then
+test   4:  0 1 then
+test   5:  0 1 2 3
+test   6:  0 1 2
+test   7:  0 1 2
+test   8:  0 2 3 then
+test   9:  0 2 3
+test  10:  0 2
+test  11:  0 2
+test  12:  0 2 3 then
+test  13:  0 2 3
+test  14:  0 2
+test  15:  0 2
+test  16:  0 then
+test  17:  0 then
+test  18:  0 then
+test  19:  0 then
+test  20:  0 then
+test  21:  0 then
+test  22:  0 then
+test  23:  0 then
+test  24:  0 1 2 3 then
+test  25:  0 1 then
+test  26:  0 1 then
+test  27:  0 1 then
+test  28:  0 1 2 3 then
+test  29:  0 1 2 3
+test  30:  0 1 2
+test  31:  0 1 2
+test  32:  0 1 then
+test  33:  0 1 then
+test  34:  0 1 then
+test  35:  0 1 then
+test  36:  0 1 then
+test  37:  0 1 2 then
+test  38:  0 1 2 3 then
+test  39:  0 1 2 3
+test  40:  0 2 then
+test  41:  0 2 then
+test  42:  0 2 3 then
+test  43:  0 2 3
+test  44:  0 2 then
+test  45:  0 2 then
+test  46:  0 2 3 then
+test  47:  0 2 3

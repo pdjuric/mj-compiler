@@ -1,0 +1,89 @@
+program if_test
+
+int testCaseNo;
+{
+    bool T(int t) {
+        print(t, 2);
+        return true;
+    }
+
+    bool F(int t) {
+        print(t, 2);
+        return false;
+    }
+
+    void inThen() {
+        print('t',2);
+        print('h',1);
+        print('e',1);
+        print('n',1);
+    }
+
+    void next() {
+        print(eol);
+        print('t',1);
+        print('e',1);
+        print('s',1);
+        print('t',1);
+        print(testCaseNo, 4);
+        print(':', 1);
+        print(' ', 1);
+        testCaseNo++;
+    }
+
+    void main() {
+        testCaseNo = 0;
+
+        next();		if (T(0) && T(1) || T(2) && T(3)) inThen();
+        next();		if (T(0) && T(1) || T(2) && F(3)) inThen();
+        next();		if (T(0) && T(1) || F(2) && T(3)) inThen();
+        next();		if (T(0) && T(1) || F(2) && F(3)) inThen();
+        next();		if (T(0) && T(1) || T(2) && T(3)) inThen();
+        next();		if (T(0) && F(1) || T(2) && F(3)) inThen();
+        next();		if (T(0) && F(1) || F(2) && T(3)) inThen();
+        next();		if (T(0) && F(1) || F(2) && F(3)) inThen();
+        next();		if (F(0) && F(1) || T(2) && T(3)) inThen();
+        next();		if (F(0) && T(1) || T(2) && F(3)) inThen();
+        next();		if (F(0) && T(1) || F(2) && T(3)) inThen();
+        next();		if (F(0) && T(1) || F(2) && F(3)) inThen();
+        next();		if (F(0) && F(1) || T(2) && T(3)) inThen();
+        next();		if (F(0) && F(1) || T(2) && F(3)) inThen();
+        next();		if (F(0) && F(1) || F(2) && T(3)) inThen();
+        next();		if (F(0) && F(1) || F(2) && F(3)) inThen();
+
+        next();		if (T(0) || T(1) || T(2) && T(3)) inThen();
+        next();		if (T(0) || T(1) || T(2) && F(3)) inThen();
+        next();		if (T(0) || T(1) || F(2) && T(3)) inThen();
+        next();		if (T(0) || T(1) || F(2) && F(3)) inThen();
+        next();		if (T(0) || T(1) || T(2) && T(3)) inThen();
+        next();		if (T(0) || F(1) || T(2) && F(3)) inThen();
+        next();		if (T(0) || F(1) || F(2) && T(3)) inThen();
+        next();		if (T(0) || F(1) || F(2) && F(3)) inThen();
+        next();		if (F(0) || F(1) || T(2) && T(3)) inThen();
+        next();		if (F(0) || T(1) || T(2) && F(3)) inThen();
+        next();		if (F(0) || T(1) || F(2) && T(3)) inThen();
+        next();		if (F(0) || T(1) || F(2) && F(3)) inThen();
+        next();		if (F(0) || F(1) || T(2) && T(3)) inThen();
+        next();		if (F(0) || F(1) || T(2) && F(3)) inThen();
+        next();		if (F(0) || F(1) || F(2) && T(3)) inThen();
+        next();		if (F(0) || F(1) || F(2) && F(3)) inThen();
+
+    	next();		if (T(0) && T(1) || T(2) || T(3)) inThen();
+    	next();		if (T(0) && T(1) || T(2) || F(3)) inThen();
+    	next();		if (T(0) && T(1) || F(2) || T(3)) inThen();
+    	next();		if (T(0) && T(1) || F(2) || F(3)) inThen();
+    	next();		if (T(0) && T(1) || T(2) || T(3)) inThen();
+    	next();		if (T(0) && F(1) || T(2) || F(3)) inThen();
+    	next();		if (T(0) && F(1) || F(2) || T(3)) inThen();
+    	next();		if (T(0) && F(1) || F(2) || F(3)) inThen();
+    	next();		if (F(0) && F(1) || T(2) || T(3)) inThen();
+    	next();		if (F(0) && T(1) || T(2) || F(3)) inThen();
+    	next();		if (F(0) && T(1) || F(2) || T(3)) inThen();
+    	next();		if (F(0) && T(1) || F(2) || F(3)) inThen();
+    	next();		if (F(0) && F(1) || T(2) || T(3)) inThen();
+    	next();		if (F(0) && F(1) || T(2) || F(3)) inThen();
+    	next();		if (F(0) && F(1) || F(2) || T(3)) inThen();
+    	next();		if (F(0) && F(1) || F(2) || F(3)) inThen();
+    }
+
+}

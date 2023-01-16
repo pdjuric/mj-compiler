@@ -1,0 +1,24 @@
+program function_call_test
+
+class A { }
+
+int var;
+A a1, a2;
+
+{
+    void main() {
+
+        //ugnezdeni pozivi
+
+        if (5 < 'c') var++;
+        if (5 == true) var++;
+        if (a1 > a2 || a1 < a2) var++;
+        if (true == true) var++;                // ok ?
+        print(var);
+
+        var = 'c' + 'c';
+        var = true * false * true;
+        var = a1 + a2;
+
+   }
+}

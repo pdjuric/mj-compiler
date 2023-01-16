@@ -1,0 +1,9 @@
+program main_test
+
+class A extends int {}
+class C extends B {}
+class D extends D {}
+
+{
+    void main() {}
+}

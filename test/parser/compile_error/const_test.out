@@ -1,0 +1,7 @@
+ERROR 15:50:08,081 - line   5 - Constant a must be initialized with constant of type int
+ERROR 15:50:08,081 - line   5 - Constant b must be initialized with constant of type bool
+ERROR 15:50:08,081 - line   6 - Constant c must be initialized with constant of type char
+ERROR 15:50:08,082 - line   6 - Constant d must be initialized with constant of type int
+ERROR 15:50:08,082 - line   7 - Constant e must be initialized with constant of type char
+ERROR 15:50:08,082 - line   7 - Constant f must be initialized with constant of type bool
+ERROR 15:50:08,082 - line   8 - Constant type is not int, char or bool.

@@ -1,0 +1,303 @@
+
+terminal Integer NUM_CONST;
+terminal String IDENT;
+terminal Boolean BOOL_CONST;
+terminal Character CHAR_CONST;
+
+terminal ENUM, DO, COLON;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodTypeIdent, Designator, VarIdent, GVarIdent, ConstIdent, ClassIdent, ConstVal, ForEachStmtDesignator, ForEachStmtIdent, DesignatorElement, ConstructorIdent, ClassFieldIdent, ActPars;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, MethodType, Term, Factor, Expr, FuncCall, ClassDecl, ClassSupertype, Condition, BoolCondition, CondTerm, CondFact, CallingFuncDesignator,  ActPar, NewObjectType, AddCondTerm, AndCondition;
+
+precedence left ELSE;
+
+
+/* PROGRAM */
+
+Program ::=         /*(Program)*/               PROGRAM ProgName:p GDecls LBRCE MethodDecls RBRCE;
+
+ProgName ::=        /*(ProgramName)*/           IDENT:programName;
+
+
+
+/* GLOBAL DECLARATIONS */
+
+GDecls ::=          /*(GlobalDeclarationList)*/         GDeclList
+                    /*(NoGlobalDeclarations)*/          /* epsilon */;
+
+GDeclList ::=       /*(AddGlobalDeclaration)*/          GDecl GDeclList
+                    /*(LastGlobalDeclaration)*/         GDecl;
+
+GDecl ::=           /*(ConstDeclaration)*/              CONST ConstType ConstIdents SEMICOLON
+                    /*(GlobalClassDeclaration)*/        ClassDecl
+                    /*(GlobalVarDeclaration)*/          VarType GVarIdents;
+//                    /*(GlobalVarDeclarationErr0)*/   error:l SEMICOLON {: parser.report_error("AddGVarIdentErr Error resolved (;)", lleft); :}
+
+
+
+/* GLOBAL VARIABLE DECLARATION */
+
+GVarIdents ::=      /*(AddGlobalVarIdent)*/             GVarIdent COMMA GVarIdents
+                    /*(LastGlobalVarIdent)*/            GVarIdent SEMICOLON;
+
+GVarIdent ::=       /*(GlobalObjectIdentificator)*/     IDENT:varName
+                    /*(GlobalArrayIdentificator)*/      IDENT:varName LBRCK RBRCK
+                    /*(GlobalVarIdentificatorErr)*/     error:l                          {: parser.report_recovery("Global Variable Identifier Error resolved", lleft); :};
+
+
+
+/* VARIABLE DECLARATION */
+
+VarDecls ::=        /*(VarDeclarationList)*/        VarDeclList
+                    /*(NoVarDeclarations)*/         /* epsilon */;
+
+VarDeclList ::=     /*(AddVarDeclaration)*/         VarDecl VarDeclList
+                    /*(LastVarDeclaration)*/        VarDecl;
+
+VarDecl ::=         /*(VarDecl)*/                   VarType VarIdents;
+
+VarType ::=         /*(VarType)*/                   Type;
+
+Type ::=            /*(Type)*/                      IDENT:typeName;
+
+VarIdents ::=       /*(VarIdentificatorList)*/      VarIdentList;
+
+VarIdentList ::=    /*(AddVarIdentificator)*/       VarIdent COMMA VarIdentList
+                    /*(LastVarIdentificator)*/      VarIdent SEMICOLON;
+
+VarIdent ::=        /*(ObjectIdentificator)*/       IDENT:varName
+                    /*(ArrayIdentificator)*/        IDENT:varName LBRCK RBRCK;
+
+
+
+/* CONSTANT DECLARATION */
+
+ConstType ::=       /*(ConstType)*/                 Type;
+
+ConstIdents ::=     /*(AddConstIdent)*/             ConstIdent COMMA ConstIdents
+                    /*(LastConstIdent)*/            ConstIdent;
+
+ConstIdent ::=      /*(NumConstIdent)*/             IDENT:constName Assignop NUM_CONST:constNumVal
+                    /*(CharConstIdent)*/            IDENT:constName Assignop CHAR_CONST:constNumVal
+                    /*(BoolConstIdent)*/            IDENT:constName Assignop BOOL_CONST:constNumVal;
+
+
+
+/* CLASS DECLARATION */
+
+ClassDecl ::=       /*(ClassDeclaration)*/          CLASS ClassIdent ClassSupertype LBRCE ClassFields CBody RBRCE;
+
+ClassIdent ::=      /*(ClassIdentificator)*/        IDENT:className;
+
+ClassSupertype ::=  /*(RootClassDecl)*/             /* epsilon */
+                    /*(SubclassDecl)*/              EXTENDS Type
+                    /*(SubclassDeclErr)*/           error:l     {: parser.report_recovery("Subclass Declaration Error resolved", lleft); :};
+
+
+
+/* CLASS FIELDS*/
+
+ClassFields ::=     /*(AddClassField)*/                     VarType:varType ClassFieldIdents ClassFields
+                    /*(ClassFieldsEnd)*/                    /* epsilon */;
+
+ClassFieldIdents ::=/*(AddClassFieldIdentificator)*/        ClassFieldIdent COMMA ClassFieldIdents
+                    /*(LastClassFieldIdentificator)*/       ClassFieldIdent SEMICOLON;
+
+ClassFieldIdent ::= /*(ClassFieldObjectIdentificator)*/     IDENT:varName
+                    /*(ClassFieldArrayIdentificator)*/      IDENT:varName LBRCK RBRCK
+                    /*(ClassFieldIdentificatorErr)*/        error;
+
+
+
+/* CLASS BODY */
+
+CBody ::=           /*(ClassBodyList)*/                     LBRCE CBodyList RBRCE
+                    /*(NoClassBody)*/                       /* epsilon */;
+
+CBodyList ::=       /*(AddConstructorDeclatration)*/        ConstructorDecl CBodyList
+                    /*(AddMethodDeclatrationList)*/         MethodDeclList
+                    /*(ClassBodyListEnd)*/                  /* epsilon */;
+
+
+
+/* CONSTRUCTOR DECLARATION */
+
+ConstructorDecl ::= /*(ConstructorDeclaration)*/            ConstructorIdent FormPars VarDecls FuncBody;
+
+ConstructorIdent ::=/*(ConstructorIdent)*/                  IDENT:ctorIdent;
+
+
+
+/* METHOD DECLARATION (CLASS AND GLOBAL) */
+
+MethodDecls ::=     /*(MethodDeclarationList)*/             MethodDeclList
+                    /*(NoMethodDeclarations)*/              /* epsilon */;
+
+MethodDeclList ::=  /*(AddMethodDeclaration)*/              MethodDecl MethodDeclList
+                    /*(LastMethodDeclaration)*/             MethodDecl;
+
+
+MethodDecl ::=      /*(MethodDeclaration)*/                 MethodTypeIdent FormPars VarDecls FuncBody;
+
+MethodTypeIdent ::= /*(MethodTypeAndIdentifier)*/           MethodType IDENT:methodIdent;
+
+MethodType ::=      /*(NonVoidMethodType)*/                 Type
+                    /*(VoidMethodType)*/                    VOID:methodType;
+
+FuncBody ::=        /*FunctionBody*/                        LBRCE Statements RBRCE;
+
+
+
+/* FORMAL PARAMETERS */
+
+FormPars ::=        /*(FormalParameterList)*/               LPAR FormParList RPAR
+                    /*(NoFormalParameters)*/                LPAR RPAR;
+
+FormParList ::=     /*(AddFormalParam)*/                    FormPar COMMA FormParList
+                    /*(LastFormalParam)*/                   FormPar;
+
+FormPar ::=         /*(FormParOk)*/                         VarType VarIdent
+                    /*(FormParErr)*/                        error:l {: parser.report_recovery("Formal Parameter Error resolved", lleft); :};
+
+
+
+/* ACTUAL PARAMETERS */
+
+ActPars ::=         /*(ActualParamList)*/                   ActParList
+                    /*(NoActualParam)*/                     /* epsilon */;
+
+ActParList ::=      /*(AddActualParam)*/                    ActPar COMMA ActParList
+                    /*(LastActualParam)*/                   ActPar;
+
+ActPar ::=          /*(ActPar)*/                            Expr;
+
+
+
+/* STATEMENT */
+
+Statement ::=       /*(DesignatorStmt)*/            DesignatorStatement SEMICOLON
+                    /*(IfStmt)*/                    IF IfCondStart BoolCondition Statement
+                    /*(IfElseStmt)*/                IF IfCondStart BoolCondition Statement ELSE ElseStart Statement
+                    /*(WhileStmt)*/                 WHILE WhileCondStart BoolCondition WhileBodyStart Statement
+                    /*(BreakStmt)*/                 BREAK SEMICOLON
+                    /*(ContinueStmt)*/              CONTINUE SEMICOLON
+                    /*(ReturnStmt)*/                RETURN SEMICOLON
+                    /*(ReturnExprStmt)*/            RETURN Expr SEMICOLON
+                    /*(ReadStmt)*/                  READ LPAR Designator RPAR SEMICOLON
+                    /*(PrintStmt)*/                 PRINT LPAR Expr PrintStatementWidth RPAR SEMICOLON
+                    /*(ForEachStmt)*/               ForEachStmtDesignator LPAR ForEachStmtIdent ARROW Statement RPAR SEMICOLON
+                    /*(GroupingStmt)*/              LBRCE Statements RBRCE;
+
+Statements ::=      /*(AddStatement)*/              Statement Statements
+                    /*(StatementsEnd)*/             /* epsilon*/;
+
+ElseStart ::=       /*(ElseStart)*/                 /* epsilon */;
+
+IfCondStart ::=     /*(IfCondStart)*/               /* epsilon */;
+
+WhileCondStart ::=  /*(WhileCondStart)*/            /* epsilon */;
+
+WhileBodyStart ::=  /*(WhileBodyStart)*/            /* epsilon */;
+
+ForEachStmtDesignator ::=   /*(ForEachStmtDesignator)*/         Designator DOT FOREACH;
+
+ForEachStmtIdent ::=        /*(ForEachStmtIdent)*/              IDENT:name;
+
+PrintStatementWidth ::=     /*(PrintStatementWidthSpecified)*/  COMMA NUM_CONST
+                            /*(PrintStatementNoWidth)*/         /* epsilon*/;
+
+DesignatorStatement ::=     /*(Assignment)*/                    Designator:d Assignop Expr:e
+                            /*(FunctionCallStatement)*/         FuncCall
+                            /*(Increment)*/                     Designator INC
+                            /*(Decrement)*/                     Designator DEC
+                            /*(ArrayAssignmentStatement)*/      LBRCK DesignatorList RBRCK Assignop Designator
+                            /*(DesignatorStatementErr)*/        error:l {: parser.report_recovery("Designator Statement Error resolved", lleft); :};
+
+
+
+/* CONDITION */
+
+BoolCondition ::=   /*(OkBoolCondition)*/           LPAR Condition RPAR
+                    /*(BoolConditionErr)*/          LPAR error:l RPAR         {: parser.report_recovery("Boolean Condition Error resolved", lleft); :};
+
+Condition ::=       /*(LastOrCondition)*/           AddCondition OR CondTerm
+                    /*(SingleOrCondition)*/         CondTerm;
+
+
+AddCondition ::=    /*(FirstOrCondition)*/          CondTerm
+                    /*(AddOrCondition)*/            AddCondition OR CondTerm;
+
+CondTerm ::=        /*(LastAndCondition)*/          AddCondTerm AND CondFact
+                    /*(SingleAndCondition)*/        CondFact;
+
+AddCondTerm ::=     /*(FirstAndCondition)*/         CondFact
+                    /*(AddAndCondition)*/           AddCondTerm AND CondFact;
+
+
+CondFact ::=        /*(RelExpr)*/                   Expr Relop Expr
+                    /*(OnlyExpr)*/                  Expr;
+
+
+
+/* EXPRESSION */
+
+Expr ::=            /*(AddTerm)*/                   Expr:te Addop Term:t
+                    /*(FirstAddTerm)*/              Term:t
+                    /*(FirstNegAddTerm)*/           MINUS Term:t;
+
+Term ::=            /*(MullFactor)*/                Term:ft Mulop Factor:f
+                    /*(FirstMullFactor)*/           Factor:f;
+
+
+
+/* FACTOR */
+
+Factor ::=          /*(DesignatorFactor)*/          Designator:d
+                    /*(FunctionCallFactor)*/        FuncCall
+                    /*(NumberFactor)*/              NUM_CONST:value
+                    /*(CharFactor)*/                CHAR_CONST:value
+                    /*(BooleanFactor)*/             BOOL_CONST:value
+                    /*(NewObjectFactor)*/           NEW NewObjectType LPAR ActPars RPAR
+                    /*(NewArrayFactor)*/            NEW Type LBRCK Expr RBRCK
+                    /*(GroupedExprFactor)*/         LPAR Expr RPAR;
+
+FuncCall ::=        /*(FunctionCall)*/              CallingFuncDesignator LPAR ActPars RPAR;
+
+CallingFuncDesignator ::=   /*(CallingFuncDesignator)*/     Designator;
+
+NewObjectType ::=   /*(NewObjectType)*/             Type;
+
+
+
+/* DESIGNATOR */
+
+DesignatorList ::=  /*(AddDesignatorElement)*/      DesignatorList COMMA DesignatorElement
+                    /*(FirstDesignatorElement)*/    DesignatorElement;
+
+DesignatorElement ::=   /*(NotNullDesignator)*/     Designator
+                        /*(NullDesignator)*/        /* epsilon */;
+
+Designator ::=      /*(MemberAccessDesignator)*/    Designator DOT IDENT:memberName
+                    /*(IndexingDesignator)*/        Designator LBRCK Expr RBRCK
+                    /*(IdentifierDesignator)*/      IDENT:name;
+
+
+/* OPS & LABEL*/
+
+Label ::=           /*(Label)*/                     IDENT:name;
+
+Assignop ::=        /*(Assign)*/                    ASSIGN;
+
+Relop ::=           /*(Equal)*/                     EQ
+                    /*(NotEqual)*/                  NEQ
+                    /*(Greater)*/                   GT
+                    /*(GreaterOrEqual)*/            GTE
+                    /*(Less)*/                      LT
+                    /*(LessOrEqual)*/               LTE;
+
+Addop ::=           /*(Addition)*/                  PLUS
+                    /*(Subtraction)*/               MINUS;
+
+Mulop ::=           /*(Multiplication)*/            ASTERISK
+                    /*(Division)*/                  SLASH
+                    /*(Modulo)*/                    PERCENT;
